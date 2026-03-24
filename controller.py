@@ -13,6 +13,7 @@ class Controller(object):
         self._view._lvOut.controls.append(
             ft.Text("Inizia il gioco! Indovina a quale numero sto pensando.")
         )
+        self._view._btnPlay.disabled = False
         self._view.update()
     def play(self,e):
         '''Legge il tentativo del giocatore'''
@@ -23,20 +24,26 @@ class Controller(object):
             self._view._lvOut.controls.append(
                 ft.Text("Errore, devi inserire un numero intero")
             )
+            self._view.update()
             return
-        self._view.update()
+
+
         res = self._model.play(tentativo)
+        self._view._txtT.value = self._model.T
         if res == 0:
             """Ho vinto!"""
             self._view._lvOut.controls.append(
                 ft.Text(f"Hai vinto! Il valore corretto era {tentativo}",color="green")
             )
+            self._view._btnPlay.disabled = True
+
             self._view.update()
             return
         elif res == 2:
             self._view._lvOut.controls.append(
                 ft.Text(f"Hai perso! Il valore corretto era {self._model.segreto}")
             )
+            self._view._btnPlay.disabled = True
             self._view.update()
             return
         elif res == -1:

@@ -2,7 +2,7 @@ import random
 
 class Model(object):
     def __init__(self):
-        self._Nmax = 100
+        self._Nmax = 20
         self._Tmax = 6
         self._T = self._Tmax
         self._segreto = None
@@ -29,7 +29,7 @@ class Model(object):
         if tentativo == self._segreto:
             '''Ho vinto!'''
             return 0
-        if self._T == 0:
+        if self._T <= 0:
             '''Non ho più vite!'''
             return 2
         if tentativo > self._segreto:
