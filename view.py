@@ -13,7 +13,7 @@ class View(object):
                                color="blue", size=24)
         self._txtNmax = ft.TextField(label = "Numero Max",
                                     value = self._controller.getNmax(),
-                                    disabled = True  #non posso modificare il contentuto di questo textField
+                                    disabled = True,  #non posso modificare il contentuto di questo textField
                                     )
         self._txtTmax = ft.TextField(label = "Num tentativi max",
                                      value = self._controller.getTmax(),
