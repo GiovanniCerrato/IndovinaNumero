@@ -18,8 +18,16 @@ class Controller(object):
     def play(self,e):
         '''Legge il tentativo del giocatore'''
         tentativoStr = self._view._txtInTentativo.value
+        numeroMaxStr = self._view._txtNmax.value
         try:
             tentativo = int(tentativoStr)
+            numeroMax = int(numeroMaxStr)
+            if tentativo > numeroMax or tentativo < 0:
+                self._view._lvOut.controls.append(
+                    ft.Text(f"Errore, devi inserire un numero compreso tra 0 e {numeroMax}")
+                )
+                self._view.update()
+                return
         except ValueError:
             self._view._lvOut.controls.append(
                 ft.Text("Errore, devi inserire un numero intero")

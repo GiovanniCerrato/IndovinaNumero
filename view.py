@@ -28,7 +28,8 @@ class View(object):
         self._btnReset = ft.ElevatedButton(text = "Nuova partita",
                                            on_click = self._controller.reset) #ho chiamato il NOME del metodo, non la chiamata al metodo!
         self._btnPlay = ft.ElevatedButton(text = "Indovina",
-                                              on_click = self._controller.play) #idem!
+                                          disabled= True,
+                                           on_click = self._controller.play) #idem!
 
         self._row2 = ft.Row(controls = [self._txtInTentativo,self._btnReset,self._btnPlay])
 

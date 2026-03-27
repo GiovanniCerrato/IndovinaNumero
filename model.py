@@ -2,8 +2,8 @@ import random
 
 class Model(object):
     def __init__(self):
-        self._Nmax = 20
-        self._Tmax = 6
+        self._Nmax = 100
+        self._Tmax = 10
         self._T = self._Tmax
         self._segreto = None
     def reset(self):
